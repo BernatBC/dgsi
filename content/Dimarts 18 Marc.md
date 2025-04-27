@@ -1,0 +1,33 @@
+---
+title: "Dimarts 18 de Març"
+date: 2025-03-18T11:30:03+00:00
+# weight: 1
+# aliases: ["/first"]
+tags: [""]
+author: "Bernat Borràs Civil"
+# author: ["Me", "You"] # multiple authors
+showToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: false
+description: ""
+canonicalURL: "https://www.bernatbc.github.io/dgsi/dimarts-18-marc"
+disableHLJS: true # to disable highlightjs
+disableShare: false
+disableHLJS: false
+hideSummary: false
+searchHidden: true
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
+---
+
+La classe va començar amb un petit rapàs sobre la missió, visió, objectius, estructura, etc. de les empreses, remarcant l'exemple del bar de la fib. En aquest rapàs, va sortir "Sistemes d'informació" d'una empresa, i és en aquest apartat on ens va parlar sobre els _fluxos d'informació_ i els _magatzems d'informació_ estructurats previs al 2025. Ens va explicar sobre la lentitud de les bases relacionals SQL, causat per la normalització i el manteniment de la integritat. És lent ja que les transaccions han de ser atòmiques, per tal de mantenir-la. Segons els casos, no et queda altra manera de fer-ho. Per exemple, quan compres un bitllet d'avió per internet, t'has d'assegurar que no hi hagin dues persones que comprin un mateix seient a la vegada. Tot i així, quan una aplicació necessita ser ràpida, has de trencar aquesta integritat i normalització. D'aquí van sortir les bases de dades NoSQL, que són ràpides i permet escalar les transfarències, desnormalitzant i perdent la integritat. El que realment em va sorprendre, és que puguis obtenir els mateixos resultats utilitzant una base de dades SQL. Desconeixia completament que van sorgir aquestes bases de dades per prevenir el bloqueig mental de les persones quan havien de desnormalitzar aquestes bases de dades.
+
+La part de la classe on he après un concepte que em serà d'utilitat, és quan en Marc ha comentat l'eina [Mermaid](https://mermaid.js.org/). Aquesta eina et permet fer tot tipus de diagrames mitjançant text, en comptes de ser una eina visual utilitzada amb el ratolí. El dia [Dijous 27 Febrer](/dgsi/dijous-27-febrer) ja vaig comentar que utilitzava [gohugo](https://gohugo.io/) per a la meva pàgina web, i va ser a la [documentació](https://toha-guides.netlify.app/posts/writing-posts/mermaid) del tema que utilitzo d'on vaig sentir per primera vegada sobre mermaid. Tot i així, no n'hi havia fet gaire cas, i no l'he utiltzat mai. Després de la recomanació d'en Marc, segurament el començaré a utilitzar, en comptes de [draw.io](https://app.diagrams.net/).
+
+La part final de la classe tractava sobre el fet que no sempre cal ser eficient, ja que en alguns casos, buscar la màxima eficiència pot no ser necessària ni beneficiosa. Mentres en Marc ho explicava, tot em feia pensar sobre la manera de fer les coses del meu germà, despreocupan-se de tot. Sobretot en l'exemple d'ordenar el rentavaixelles m'hi ha fet pensar. Exemples més enfocats en la vida laboral era el cas d'en Marc, que va perdre una setmana per compilar drivers a linux d'una targeta de xarxa, quan a l'empresa li sortia més a compte comprar-ne una que tingués suport per Linux. També va sortir l'exemple del Business Intelligence, que va més aplicat a la part de gestió d'una empresa.
