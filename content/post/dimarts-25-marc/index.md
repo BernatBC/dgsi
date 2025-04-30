@@ -3,6 +3,7 @@ title: "Sistemes d'informació"
 date: 2025-03-25T11:30:03+00:00
 description: Introducció als sistemes d'informació i a la divisió de treball d'Adam Smith
 slug: dimarts-25-marc
+image: smith.jpg
 categories:
     - Teoria
 tags:

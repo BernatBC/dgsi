@@ -3,6 +3,7 @@ title: "Legacy Code i SCRUM"
 date: 2025-03-04T11:30:03+00:00
 description: Introducció al codi llegat i a l'estafa del framework de treball SCRUM
 slug: dimarts-4-marc
+image: legacy.png
 categories:
     - Teoria
 tags:

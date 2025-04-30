@@ -3,6 +3,7 @@ title: "Introducció als Sistemes"
 date: 2025-03-11T11:30:03+00:00
 description: Skin in the Game i introducció als sistemes
 slug: dimarts-11-marc
+image: traffic_light.png
 categories:
     - Teoria
 tags:

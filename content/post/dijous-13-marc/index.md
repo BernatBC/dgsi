@@ -3,6 +3,7 @@ title: "RAG I"
 date: 2025-03-13T11:30:03+00:00
 description: Creació d'un Retrieval Augmented Generation (RAG) de la pàgina de la FIB
 slug: dijous-13-marc
+image: rag.png
 categories:
     - Laboratori
 tags:
