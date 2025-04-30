@@ -1,7 +1,7 @@
 ---
-title: "Dijous 24 d'Abril"
+title: "MRP d'impressores 3D I"
 date: 2025-04-24T11:30:03+00:00
-description: Dijous 24 d'Abril
+description: Creació d'un Material Requirements Planning (MRP) per a impressores 3D
 slug: dijous-24-abril
 categories:
     - Laboratori

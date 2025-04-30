@@ -1,7 +1,7 @@
 ---
-title: "Dijous 27 de Febrer"
+title: "Web to Markdown"
 date: 2025-02-27T11:30:03+00:00
-description: Dijous 27 de Febrer
+description: Crawling i Scraping d'una web a Markdown
 slug: dijous-27-febrer
 categories:
     - Laboratori

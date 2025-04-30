@@ -1,7 +1,7 @@
 ---
-title: "Dimarts 1 d'Abril"
+title: "Productivitat"
 date: 2025-04-01T11:30:03+00:00
-description: Dimarts 1 d'Abril
+description: Introducció a la productivitat, gestió d'informació i processos
 slug: dimarts-1-abril
 categories:
     - Teoria

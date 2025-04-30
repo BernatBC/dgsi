@@ -1,7 +1,7 @@
 ---
-title: "Dimarts 18 de Febrer"
+title: "Corba exponencial dels recursos"
 date: 2025-02-18T11:30:03+00:00
-description: Dimarts 18 de Febrer
+description: Aplanament de la corba dels recursos per la transició de productes a serveis
 slug: dimarts-18-febrer
 categories:
     - Teoria

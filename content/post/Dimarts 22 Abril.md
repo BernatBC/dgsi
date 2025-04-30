@@ -1,7 +1,7 @@
 ---
-title: "Dimarts 22 d'Abril"
+title: "Proposta de valor i MRP"
 date: 2025-04-22T11:30:03+00:00
-description: Dimarts 22 d'Abril
+description: Introducció a la proposta de valor i a Materials Requirements Planning (MRP)
 slug: dimarts-22-abril
 categories:
     - Teoria

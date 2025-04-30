@@ -1,7 +1,7 @@
 ---
-title: "Dimarts 25 de Febrer"
+title: "Pila Tecnològica"
 date: 2025-02-25T11:30:03+00:00
-description: Dimarts 25 de Febrer
+description: Introducció a la Pila Tecnològica
 slug: dimarts-25-febrer
 categories:
     - Teoria
