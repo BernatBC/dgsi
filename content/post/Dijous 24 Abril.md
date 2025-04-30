@@ -1,0 +1,13 @@
+---
+title: "Dijous 24 d'Abril"
+date: 2025-04-24T11:30:03+00:00
+description: Dijous 24 d'Abril
+slug: dijous-24-abril
+categories:
+    - Laboratori
+tags:
+---
+
+[Enllaç al projecte de Github](https://github.com/DGSI-UPC/3d-printer-mrp)
+
+En aquesta classe en Marc ens va donar l'enunciat de la pròxima hackathon. Aquesta consisteix en fer un MRP per a la fabricació d'impressores 3D. Malhauradament vaig haver de marxar abans d'hora perquè no em trobava bé. 
