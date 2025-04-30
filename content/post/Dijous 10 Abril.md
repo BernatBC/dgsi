@@ -1,7 +1,7 @@
 ---
-title: "Dijous 10 d'Abril"
+title: "Chat with any website II"
 date: 2025-04-10T11:30:03+00:00
-description: Dijous 10 d'Abril
+description: Xatbot complet on la resposta es basa amb la pàgina web introduïda
 slug: dijous-10-abril
 categories:
     - Laboratori

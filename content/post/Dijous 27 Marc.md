@@ -1,7 +1,7 @@
 ---
-title: "Dijous 27 de Març"
+title: "Chat with any website I"
 date: 2025-03-27T11:30:03+00:00
-description: Dijous 27 de Març
+description: Xatbot complet on la resposta es basa amb la pàgina web introduïda
 slug: dijous-27-marc
 categories:
     - Laboratori

@@ -1,7 +1,7 @@
 ---
-title: "Dimarts 11 de Març"
+title: "Introducció als Sistemes"
 date: 2025-03-11T11:30:03+00:00
-description: Dimarts 11 de Març
+description: Skin in the Game i introducció als sistemes
 slug: dimarts-11-marc
 categories:
     - Teoria

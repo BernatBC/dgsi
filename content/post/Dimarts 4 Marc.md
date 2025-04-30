@@ -1,7 +1,7 @@
 ---
-title: "Dimarts 4 de Març"
+title: "Legacy Code i SCRUM"
 date: 2025-03-04T11:30:03+00:00
-description: Dimarts 4 de Març
+description: Introducció al codi llegat i a l'estafa del framework de treball SCRUM
 slug: dimarts-4-marc
 categories:
     - Teoria

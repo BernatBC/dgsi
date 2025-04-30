@@ -1,8 +1,8 @@
 ---
-title: "Dijous 6 de Març"
+title: "Embedding amb ChromaDB"
 date: 2025-03-06T11:30:03+00:00
 tags: [""]
-description: Dijous 6 de Març
+description: Creació d'embeddings de la pàgina de la FIB a bases de dades vectorials
 slug: dijous-6-marc
 categories:
     - Laboratori

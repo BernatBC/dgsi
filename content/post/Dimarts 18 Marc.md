@@ -1,7 +1,7 @@
 ---
-title: "Dimarts 18 de Març"
+title: "Més sistemes i eficiencia"
 date: 2025-03-18T11:30:03+00:00
-description: Dimarts 18 de Març
+description: Més informació sobre els sistemes, i perquè no cal obtenir una major eficiència
 slug: dimarts-18-marc
 categories:
     - Teoria
