@@ -1,9 +1,9 @@
 ---
 title: "Embedding amb ChromaDB"
 date: 2025-03-06T11:30:03+00:00
-tags: [""]
 description: Creació d'embeddings de la pàgina de la FIB a bases de dades vectorials
 slug: dijous-6-marc
+image: chromadb.png
 categories:
     - Laboratori
 tags:

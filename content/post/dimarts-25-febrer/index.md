@@ -3,6 +3,7 @@ title: "Pila Tecnològica"
 date: 2025-02-25T11:30:03+00:00
 description: Introducció a la Pila Tecnològica
 slug: dimarts-25-febrer
+image: debt.png
 categories:
     - Teoria
 tags:

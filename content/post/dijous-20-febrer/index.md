@@ -3,6 +3,7 @@ title: "Generador de Subtítols"
 date: 2025-02-20T11:30:03+00:00
 description: Generador de subtítols SRT amb diarització
 slug: dijous-20-febrer
+image: subtitles.png
 categories:
     - Laboratori
 tags:

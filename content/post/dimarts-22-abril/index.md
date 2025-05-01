@@ -3,6 +3,7 @@ title: "Proposta de valor i MRP"
 date: 2025-04-22T11:30:03+00:00
 description: Introducció a la proposta de valor i a Materials Requirements Planning (MRP)
 slug: dimarts-22-abril
+image: mrp.png
 categories:
     - Teoria
 tags:
