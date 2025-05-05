@@ -9,10 +9,18 @@ categories:
 tags:
 ---
 
-[Enllaç al projecte de Github](https://github.com/DGSI-UPC/chat-with-any-website)
+## Continuant amb la hackathon
+L'objectiu d'aquesta classe era continuar avançant amb el nostre xatbot, descrit a [Dijous 27 Març](/dgsi/post/dijous-27-marc). Com que a la classe anterior ja teníem una versió funcional, en aquesta sessió vam millorar una miqueta l'estil de la pàgina web del xatbot i prou.
 
-En aquesta hackathon seguíem utilitzant el nostre xatbot, descrit a [Dijous 27 Març](/dgsi/post/dijous-27-marc). 
+Com a recordatori, al següent enllaç trobareu el codi font del projecte:
 
-En aquesta sessió vam millorar una miqueta l'estil de la pàgina web del xatbot i prou. Tota la funcionalitat ja la teníem feta dels dies anteriors.
+[Veure a GitHub](https://github.com/DGSI-UPC/chat-with-any-website)
 
-Vam decidir centrar-nos en crear els exemples per a la presentació que havíem de fer, i prou.
+## Presentació del projecte
+En Marc va demanar que cada grup preparés una presentació sobre el projecte que havíem fet durant aquests dies.
+
+Com que ja teníem el xatbot fet, vam decidir centrar-nos a crear els exemples per a la presentació que havíem de fer.
+
+A continuació es mostra un document amb les diapositives que vam preparar, i presentar davant de la classe:
+
+<embed src="Chat with any website.pdf" width="100%" height="700" type="application/pdf">
