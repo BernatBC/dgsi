@@ -23,7 +23,7 @@ Com a cada hackathon, hem utilitzat Python com a llenguatge principal, i [FastAP
 
 Per a la simulació, hem utilitzat [SimPy](https://simpy.readthedocs.io/en/latest/), tal com s'ha demanat a l'enunciat. [Streamlit](https://streamlit.io/) ens permet fer els dashboards d'una manera senzilla. Per a la persistència, utilitzem fitxers JSON, que els validem amb la biblioteca [Pydantic](https://docs.pydantic.dev/latest/). A més a més, per a gestionar les ordres utilitzem `DataFrame` de [Pandas](https://pandas.pydata.org/), ja que ens permet fer càlculs avançats de forma senzilla, i ens serà més fàcil per poder representar els gràfics amb [Matplotlib](https://matplotlib.org/).
 
-Per tal d'executar el projecte, donem 2 possibilitats. La primera és executar-la en local mitjançant [Uvicorn](https://www.uvicorn.org/), i la segona és mitjançant un contenidor [Docker](https://www.docker.com/) amb el Dockerfile que proporcionem.
+Per tal d'executar el projecte proporcionem un Dockerfile que crea 3 contenidors [Docker](https://www.docker.com/): un per al frontend, un per al backend, i un tercer amb la base de dades [MongoDB](https://www.mongodb.com/).
 
 Per a més informació sobre el projecte, podeu donar un cop d'ull al [README](https://github.com/DGSI-UPC/3d-printer-mrp/blob/main/README.md) del projecte. Al següent enllaç trobareu el codi font del projecte:
 
