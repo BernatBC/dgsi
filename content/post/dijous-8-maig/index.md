@@ -12,15 +12,15 @@ tags:
 ## Hackathon
 
 ### Enunciat
-L'objectiu d'aquesta sessió és seguir amb el desenvolupament d'un MRP d'impressores 3D explicat a [MRP d'impresores 3D I](/dgsi/post/dijous-24-abril).
+L'objectiu d'aquesta sessió és continuar amb el desenvolupament d'un MRP d'impressores 3D explicat a [MRP d'impresores 3D I](/dgsi/post/dijous-24-abril).
 
 ### La solució
-Ja que el dia anterior, mitjançant una sola prompt, ja teníem un resultat decent, ens vam centrar en aplicar certes millores al MRP. Concretament vam fer els següents canvis:
+Ja que el dia anterior, mitjançant una sola prompt, ja teníem un resultat decent, ens vam centrar a aplicar certes millores al MRP. Concretament vam fer els següents canvis:
 1. Afegir la possibilitat d'acceptar una comanda. Això implica afegir un nou estat entre pendent i en producció.
 2. Mostrar un gràfic amb la previsió de stock de cadascuna de les peces.
 3. Arreglar diversos bugs.
 
-Les tecnologies utilitzades no varien respecte les del primer dia ([MRP d'impresores 3D I](/dgsi/post/dijous-24-abril)).
+Les tecnologies utilitzades no varien respecte a les del primer dia ([MRP d'impresores 3D I](/dgsi/post/dijous-24-abril)).
 
 Per tal d'executar el projecte proporcionem un Dockerfile que crea 3 contenidors [Docker](https://www.docker.com/): un per al frontend, un per al backend, i un tercer amb la base de dades [MongoDB](https://www.mongodb.com/).
 
