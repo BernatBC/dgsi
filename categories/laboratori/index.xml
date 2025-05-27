@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Laboratori on Portfoli DGSI - Bernat Borràs</title><link>https://bernatbc.tk/dgsi/categories/laboratori/</link><description>Recent content in Laboratori on Portfoli DGSI - Bernat Borràs</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 27 May 2025 00:30:03 +0000</lastBuildDate><atom:link href="https://bernatbc.tk/dgsi/categories/laboratori/index.xml" rel="self" type="application/rss+xml"/><item><title>Creant Agents</title><link>https://bernatbc.tk/dgsi/post/dimarts-27-maig/</link><pubDate>Tue, 27 May 2025 00:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dimarts-27-maig/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dimarts-27-maig/react.webp" alt="Featured image of post Creant Agents" />&lt;h2 id="introducció-als-agents">Introducció als agents
+&lt;/h2>&lt;p>Els agents, en el context del desenvolupament de programari, són sistemes dissenyats per executar tasques de manera autònoma o semi-autònoma. És important destacar que un agent &lt;strong>no és una intel·ligència artificial (IA)&lt;/strong>, sinó un component de programari que segueix unes regles o instruccions predefinides per interactuar amb l&amp;rsquo;entorn o amb altres sistemes.&lt;/p>
+&lt;p>Un agent pot rebre instruccions, processar informació i actuar utilitzant diferents eines o serveis, però no &amp;ldquo;aprèn&amp;rdquo; ni &amp;ldquo;pensa&amp;rdquo; per si mateix com faria una IA. En molts casos, els agents implementen patrons com el &lt;strong>RE-ACT&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>REason&lt;/strong>: L&amp;rsquo;agent genera automàticament instruccions (auto prompting) a partir de la informació rebuda, però no descobreix coneixement nou; simplement aplica tècniques de prompt engineering per decidir què fer.&lt;/li>
+&lt;li>&lt;strong>ACT&lt;/strong>: L&amp;rsquo;agent executa accions concretes, com ara fer cerques a internet o utilitzar funcions específiques (function calling), mitjançant eines o serveis externs.&lt;/li>
+&lt;/ul>
+&lt;p>Així, el funcionament típic d&amp;rsquo;un agent comença amb un prompt inicial: rep un missatge de l&amp;rsquo;usuari, processa la informació en cicles i guia l&amp;rsquo;usuari sobre com utilitzar les diferents eines disponibles. Tot plegat, sense ser una IA, sinó un sistema de programari estructurat per resoldre tasques de manera eficient.&lt;/p>
+&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>En aquesta hackathon, havíem de construir una agent sense utilitzar cap mòdul, fent-lo tal qual. Aquest agent ha de seguir RE-ACT, implementant un bucle d&amp;rsquo;auto prompting, i creant alguna eina que pogués utilitzar.&lt;/p>
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>Acompanyat amb els meus companys, hem creat un agent que fa auto prompting en bucle. Respecte a l&amp;rsquo;&amp;ldquo;ACT&amp;rdquo;, l&amp;rsquo;agent es centra en fer embeddings vectorials amb &lt;a class="link" href="https://www.trychroma.com/" target="_blank" rel="noopener"
+>ChromaDB&lt;/a>, com a la hackathon &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-6-marc/" >Embedding amb ChromaDB&lt;/a>. Les 3 funcions que crida el nostre agent són:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>embed_information(content: str, category: str) -&amp;gt; str&lt;/code>: fa l&amp;rsquo;embedding d&amp;rsquo;un fragment de text qualsevol&lt;/li>
+&lt;li>&lt;code>query_information(query_text: str, category: str) -&amp;gt; dict&lt;/code>: retorna com a màxim 5 fragments de texts, conjuntament amb les seves metadades.&lt;/li>
+&lt;li>&lt;code>scrape_and_embed_website(url: str) -&amp;gt; list[str]&lt;/code>: fa l&amp;rsquo;embedding d&amp;rsquo;una pàgina web, donat un enllaç, similar a les hackathons &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-27-marc/" >Chat with any website I&lt;/a> i &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-10-abril/" >Chat with any website II&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Tot i que es pot executar en local, proporcionem un Dockerfile i un &lt;code>docker-compose.yml&lt;/code> per a fer l&amp;rsquo;execució en un contenidor.&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/barbones-agent" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>Model Context Protocol I</title><link>https://bernatbc.tk/dgsi/post/dijous-22-maig/</link><pubDate>Thu, 22 May 2025 00:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-22-maig/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-22-maig/claude.png" alt="Featured image of post Model Context Protocol I" />&lt;h2 id="introducció-al-model-context-protocol">Introducció al Model Context Protocol
+&lt;/h2>&lt;p>Els &lt;a class="link" href="https://modelcontextprotocol.io/introduction" target="_blank" rel="noopener"
+>Model Context Protocols (MCP)&lt;/a> són especificacions que defineixen com els models d&amp;rsquo;intel·ligència artificial poden gestionar, compartir i utilitzar el context durant una conversa o procés. Permeten que diferents aplicacions i serveis intercanviïn informació contextual de manera estructurada, millorant la coherència i la personalització de les respostes dels models. Això facilita la integració de models en entorns complexos i multiusuari, assegurant una experiència més rica i adaptada a cada situació.&lt;/p>
+&lt;h2 id="experimentant-amb-claude-desktop">Experimentant amb Claude Desktop
+&lt;/h2>&lt;p>Una vegada presentat el Model Context Protocol, hem experimentat amb els MCPs utilitzant &lt;a class="link" href="https://claude.ai/download" target="_blank" rel="noopener"
+>Claude Desktop&lt;/a>. Malauradament, no hi ha l&amp;rsquo;opció d&amp;rsquo;instal·lar-ho a Linux, però he trobat un &lt;a class="link" href="https://github.com/bsneed/claude-desktop-fedora" target="_blank" rel="noopener"
+>repositori&lt;/a> per instal·lar-ho a Fedora, la distribució que utilitzo. Tot i això, m&amp;rsquo;ha sortit un error de compatibilitat de GTK, i he hagut d&amp;rsquo;instal·lar-ho a Windows.&lt;/p>
+&lt;p>Aquesta &lt;a class="link" href="https://github.com/bsneed/claude-desktop-fedora/issues/21" target="_blank" rel="noopener"
+>issue&lt;/a> oberta descriu aquest problema, i l&amp;rsquo;endemà va quedar resposta. A Fedora 42, es pot iniciar Claude Desktop directament amb:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">claude-desktop --gtk-version&lt;span class="o">=&lt;/span>&lt;span class="m">3&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="filesystem-mcp-server">Filesystem MCP Server
+&lt;/h3>&lt;p>El primer MCP que hem utilitzat, és el &lt;a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem" target="_blank" rel="noopener"
+>Filesystem MCP Server&lt;/a>, que ja ve incorporat al Claude Desktop. Després de reiniciar Windows, ha sigut possible utilitzar-ho. Tal com indica el seu nom, aquest MCP dona accés al sistema d&amp;rsquo;arxius, concretament als directoris especificats al fitxer de configuració. Un dels exemples explicats per en Marc, que també he aconseguit funcionar és el de llistar els fitxers d&amp;rsquo;un repositori.&lt;/p>
+&lt;h3 id="desktop-comander">Desktop Comander
+&lt;/h3>&lt;p>El següent MCP és el &lt;a class="link" href="https://desktopcommander.app/" target="_blank" rel="noopener"
+>Desktop Commander&lt;/a>. Aquest dona al model l&amp;rsquo;accés a la terminal. L&amp;rsquo;exemple fet, que també m&amp;rsquo;ha funcionat, és el d&amp;rsquo;indicar al model que mati un procés. Hem aconseguit matar el procés del Word, i fins i tot el de l&amp;rsquo;aplicació de Claude Desktop.&lt;/p>
+&lt;h3 id="playwright-mcp-server">Playwright MCP Server
+&lt;/h3>&lt;p>Finalment, hem provat &lt;a class="link" href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener"
+>Playwright MCP&lt;/a>. Aquest permet fer l&amp;rsquo;ús d&amp;rsquo;aplicacions, com el navegador. Hem provat l&amp;rsquo;exemple de navegar a la pàgina web de l&amp;rsquo;UPC i buscar el telèfon d&amp;rsquo;en Marc, però jo no ho he aconseguit. Playwright utilitza molts tokens, i amb la versió gratis de Claude em sortia un error dient que m&amp;rsquo;havia passat del límit.&lt;/p></description></item><item><title>Agents I: Broswer-use</title><link>https://bernatbc.tk/dgsi/post/dijous-15-maig/</link><pubDate>Thu, 15 May 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-15-maig/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-15-maig/browser-use.png" alt="Featured image of post Agents I: Broswer-use" />&lt;h2 id="introducció-al-browser-use">Introducció al browser-use
+&lt;/h2>&lt;p>&lt;a class="link" href="https://browser-use.com/" target="_blank" rel="noopener"
+>Browser-use&lt;/a> és una biblioteca de Python que et permet crear un agent que actua al navegador. Aquesta et permet controlar navegadors web automàticament mitjançant un model de visió per al reconeixement dels elements, i un Large Language Model que fa crides recursives per tal de generar les accions.&lt;/p>
+&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>L&amp;rsquo;objectiu d&amp;rsquo;aquesta hackathon era crear un agent amb &lt;a class="link" href="https://browser-use.com/" target="_blank" rel="noopener"
+>Browser-use&lt;/a>, que fos capaç de resoldre un test amb preguntes d&amp;rsquo;actualitat, preferiblement posteriors a la cutoff date del model utilitzat.&lt;/p>
+&lt;h3 id="la-idea">La idea
+&lt;/h3>&lt;p>La nostra idea consistia a crear una sèrie de preguntes sobre els &lt;a class="link" href="https://www.3cat.cat/324/matar-mosques-a-canonades-com-lestrategia-de-laliga-contra-la-pirateria-afecta-milers-de-webs/noticia/3350001/" target="_blank" rel="noopener"
+>bloqueigs de servidors de part de laliga&lt;/a> en un document a Google Docs. A continuació, l&amp;rsquo;agent accediria al document, llegiria les preguntes, faria cerques a internet, i les respondria.&lt;/p>
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>Malauradament no vam aconseguir el nostre objectiu. Tot i així, hem pogut superar una sèrie de fites durant el desenvolupament de l&amp;rsquo;agent.&lt;/p>
+&lt;p>La primera fita era que l&amp;rsquo;agent pogués accedir al Google Docs. Des d&amp;rsquo;un inici, l&amp;rsquo;agent ja accedia a la pàgina en qüestió, però un compte de Google era necessari. En les primeres iteracions, l&amp;rsquo;agent intentava accedir amb comptes que es treia de la màniga, i més endavant intentava crear un compte nou. Això ho vam poder resoldre forçant que el Google Chrome mantingués la sessió oberta, i especificant la ruta del binari del navegador.&lt;/p>
+&lt;p>La segona fita que vam &amp;ldquo;resoldre&amp;rdquo; era accedir al document compartit on hi havia les preguntes escrites. Durant els nostres intents, l&amp;rsquo;agent creava un document nou tota l&amp;rsquo;estona, i en altres iteracions, remenava la configuració de Google. En veure que no hi havia manera, optàvem per obrir-lo manualment quan l&amp;rsquo;agent entrava al Docs. L&amp;rsquo;agent tenia hardcodejat l&amp;rsquo;enllaç, però així i tot, passava de nosaltres.&lt;/p>
+&lt;p>La tercera fita proposada era que el model llegís les preguntes del document. L&amp;rsquo;agent, una vegada tenia el document obert, intentava compartir-lo. Això era perquè li havíem dit que el document estava compartit. En les següents iteracions, semblava que l&amp;rsquo;agent era capaç de detectar el cos del document, però decidia tancar el navegador.&lt;/p>
+&lt;p>Per a aquest projecte, vam utilitzar els següents models:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://platform.openai.com/docs/models/gpt-4o" target="_blank" rel="noopener"
+>GPT-4o&lt;/a> com a model de visió.&lt;/li>
+&lt;li>&lt;a class="link" href="https://platform.openai.com/docs/models/gpt-4o-mini" target="_blank" rel="noopener"
+>GPT-4o mini&lt;/a> com a model que genera les respostes.&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.perplexity.ai/models/models/sonar" target="_blank" rel="noopener"
+>sonar-small-32k-online&lt;/a> com a model de &lt;a class="link" href="https://www.perplexity.ai/" target="_blank" rel="noopener"
+>Perplexity.ai&lt;/a> per a la cerca de respostes a internet.&lt;/li>
+&lt;/ul>
+&lt;p>Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/test-solver-agent" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>MRP d'impressores 3D II</title><link>https://bernatbc.tk/dgsi/post/dijous-08-maig/</link><pubDate>Thu, 08 May 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-08-maig/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-08-maig/mrp.png" alt="Featured image of post MRP d'impressores 3D II" />&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>L&amp;rsquo;objectiu d&amp;rsquo;aquesta sessió és continuar amb el desenvolupament d&amp;rsquo;un MRP d&amp;rsquo;impressores 3D explicat a &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-24-abril" >MRP d&amp;rsquo;impresores 3D I&lt;/a>.&lt;/p>
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>Ja que el dia anterior, mitjançant una sola prompt, ja teníem un resultat decent, ens vam centrar a aplicar certes millores al MRP. Concretament vam fer els següents canvis:&lt;/p>
+&lt;ol>
+&lt;li>Afegir la possibilitat d&amp;rsquo;acceptar una comanda. Això implica afegir un nou estat entre pendent i en producció.&lt;/li>
+&lt;li>Mostrar un gràfic amb la previsió de stock de cadascuna de les peces.&lt;/li>
+&lt;li>Arreglar diversos bugs.&lt;/li>
+&lt;/ol>
+&lt;p>Les tecnologies utilitzades no varien respecte a les del primer dia (&lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-24-abril" >MRP d&amp;rsquo;impresores 3D I&lt;/a>).&lt;/p>
+&lt;p>Per tal d&amp;rsquo;executar el projecte proporcionem un Dockerfile que crea 3 contenidors &lt;a class="link" href="https://www.docker.com/" target="_blank" rel="noopener"
+>Docker&lt;/a>: un per al frontend, un per al backend, i un tercer amb la base de dades &lt;a class="link" href="https://www.mongodb.com/" target="_blank" rel="noopener"
+>MongoDB&lt;/a>.&lt;/p>
+&lt;p>Per a més informació sobre el projecte, podeu donar un cop d&amp;rsquo;ull al &lt;a class="link" href="https://github.com/DGSI-UPC/3d-printer-mrp/blob/main/README.md" target="_blank" rel="noopener"
+>README&lt;/a> del projecte. Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/3d-printer-mrp" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>MRP d'impressores 3D I</title><link>https://bernatbc.tk/dgsi/post/dijous-24-abril/</link><pubDate>Thu, 24 Apr 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-24-abril/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-24-abril/mrp.png" alt="Featured image of post MRP d'impressores 3D I" />&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>En aquesta classe en Marc ens va donar l&amp;rsquo;enunciat de la pròxima hackathon. Aquesta consisteix en fer un MRP per a la fabricació d&amp;rsquo;impressores 3D, amb una interfície gràfica, que es pugui gestionar mitjançant una API, i que es pugui llançar en Docker. A continuació es troba l&amp;rsquo;enunciat complet del projecte:&lt;/p>
+&lt;embed src="project.pdf" width="100%" height="700" type="application/pdf">
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>En aquesta sessió no vaig poder contribuir, ja que malauradament vaig haver de marxar abans d&amp;rsquo;hora perquè no em trobava bé. Així i tot, el meu grup va poder fer una primera versió completa del projecte, una altra vegada amb un sol prompt a &lt;a class="link" href="https://deepmind.google/technologies/gemini/pro/" target="_blank" rel="noopener"
+>Gemini 2.5 Pro&lt;/a>.&lt;/p>
+&lt;p>Com a cada hackathon, hem utilitzat Python com a llenguatge principal, i &lt;a class="link" href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener"
+>FastAPI&lt;/a> per a l&amp;rsquo;API i la web.&lt;/p>
+&lt;p>Per a la simulació, hem utilitzat &lt;a class="link" href="https://simpy.readthedocs.io/en/latest/" target="_blank" rel="noopener"
+>SimPy&lt;/a>, tal com s&amp;rsquo;ha demanat a l&amp;rsquo;enunciat. &lt;a class="link" href="https://streamlit.io/" target="_blank" rel="noopener"
+>Streamlit&lt;/a> ens permet fer els dashboards d&amp;rsquo;una manera senzilla. Per a la persistència, utilitzem fitxers JSON, que els validem amb la biblioteca &lt;a class="link" href="https://docs.pydantic.dev/latest/" target="_blank" rel="noopener"
+>Pydantic&lt;/a>. A més a més, per a gestionar les ordres utilitzem &lt;code>DataFrame&lt;/code> de &lt;a class="link" href="https://pandas.pydata.org/" target="_blank" rel="noopener"
+>Pandas&lt;/a>, ja que ens permet fer càlculs avançats de forma senzilla, i ens serà més fàcil per poder representar els gràfics amb &lt;a class="link" href="https://matplotlib.org/" target="_blank" rel="noopener"
+>Matplotlib&lt;/a>.&lt;/p>
+&lt;p>Per tal d&amp;rsquo;executar el projecte proporcionem un Dockerfile que crea 3 contenidors &lt;a class="link" href="https://www.docker.com/" target="_blank" rel="noopener"
+>Docker&lt;/a>: un per al frontend, un per al backend, i un tercer amb la base de dades &lt;a class="link" href="https://www.mongodb.com/" target="_blank" rel="noopener"
+>MongoDB&lt;/a>.&lt;/p>
+&lt;p>Per a més informació sobre el projecte, podeu donar un cop d&amp;rsquo;ull al &lt;a class="link" href="https://github.com/DGSI-UPC/3d-printer-mrp/blob/main/README.md" target="_blank" rel="noopener"
+>README&lt;/a> del projecte. Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/3d-printer-mrp" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>Chat with any website II</title><link>https://bernatbc.tk/dgsi/post/dijous-10-abril/</link><pubDate>Thu, 10 Apr 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-10-abril/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-10-abril/chat.png" alt="Featured image of post Chat with any website II" />&lt;h2 id="continuant-amb-la-hackathon">Continuant amb la hackathon
+&lt;/h2>&lt;p>L&amp;rsquo;objectiu d&amp;rsquo;aquesta classe era continuar avançant amb el nostre xatbot, descrit a &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-27-marc" >Dijous 27 Març&lt;/a>. Com que a la classe anterior ja teníem una versió funcional, en aquesta sessió vam millorar una miqueta l&amp;rsquo;estil de la pàgina web del xatbot i prou.&lt;/p>
+&lt;p>Com a recordatori, al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/chat-with-any-website" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p>
+&lt;h2 id="presentació-del-projecte">Presentació del projecte
+&lt;/h2>&lt;p>En Marc va demanar que cada grup preparés una presentació sobre el projecte que havíem fet durant aquests dies.&lt;/p>
+&lt;p>Com que ja teníem el xatbot fet, vam decidir centrar-nos a crear els exemples per a la presentació que havíem de fer.&lt;/p>
+&lt;p>A continuació es mostra un document amb les diapositives que vam preparar, i presentar davant de la classe:&lt;/p>
+&lt;embed src="Chat with any website.pdf" width="100%" height="700" type="application/pdf"></description></item><item><title>Chat with any website I</title><link>https://bernatbc.tk/dgsi/post/dijous-27-marc/</link><pubDate>Thu, 27 Mar 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-27-marc/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-27-marc/chat.png" alt="Featured image of post Chat with any website I" />&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>En aquesta hackathon seguíem desenvolupant el nostre xatbot. En Marc va escriure 4 nivells per a assolir:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Xatbot bàsic:&lt;/strong> Assolit el dia &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-13-marc" >Dijous 13 Març&lt;/a>&lt;/li>
+&lt;li>&lt;strong>Xatbot amb capacitat semàntica:&lt;/strong> Assolit el dia &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-20-marc" >Dijous 20 Març&lt;/a>&lt;/li>
+&lt;li>&lt;strong>Capacitat de suportar PDFs&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Suport Docker&lt;/strong>
+A més a més d&amp;rsquo;aquest nivell, calia afegir-li una interfície gràfica (una pàgina web, per exemple) per tal d&amp;rsquo;utilitzar-lo.&lt;/li>
+&lt;/ol>
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>Ja feia dies que teníem pensat fer una ampliació al xatbot, per tal que en passar-li qualsevol enllaç durant l&amp;rsquo;execució, automàticament es fes l&amp;rsquo;scrapping en Markdown, l&amp;rsquo;embedding, i generi un diccionari semàntic amb els conceptes rellevants.&lt;/p>
+&lt;p>Per aquest motiu, vam decidir fer el projecte des de 0, utilitzant &lt;a class="link" href="https://deepmind.google/technologies/gemini/pro/" target="_blank" rel="noopener"
+>Gemini 2.5 Pro&lt;/a>, que havia sortit el dia anterior. Amb un sol prompt, va aconseguir assolir els següents punts:&lt;/p>
+&lt;ol>
+&lt;li>Xatbot bàsic&lt;/li>
+&lt;li>Xatbot amb capacitat semàntica&lt;/li>
+&lt;li>Suport PDF&lt;/li>
+&lt;li>Interfície Web&lt;/li>
+&lt;li>Docker&lt;/li>
+&lt;/ol>
+&lt;p>Per fer l&amp;rsquo;embedding, es fa servir &lt;a class="link" href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2" target="_blank" rel="noopener"
+>all-MiniLM-L6-v2&lt;/a> en local, mentre que el LLM utilitzat per al xat, és ChatGPT-4o-mini, mitjançant l&amp;rsquo;&lt;a class="link" href="https://platform.openai.com/docs/models" target="_blank" rel="noopener"
+>API d&amp;rsquo;OpenAI&lt;/a>.&lt;/p>
+&lt;p>El prompt introduït és:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">OBJECTIVE:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> You will create a python API and website. The goal is to have a functioning website in which a user can introduce an URL of any website and then the contents of the website will be scrapped and indexed and then the user will be able to chat with an LLM that will use the knowledge scraped in the website to answer the questions. Make sure to provide all the code of the diferent files preparated so I can copy and paste and to define a clear file structure. Make sure that the frontend and the bakcend lie in different folders. Everything must be dockerized so it can be easily runned by using docker compose up. To simplify things, everything should be in the same docker container. Do NOT use celery as it complicates things too much. This should support content in English, Spanish and Catalan.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REQUIREMENTS:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Use python 3.11
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Use fastapi as api
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Use ChromaDB as vdb and db
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Use Beautiful soup for web scrapping
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Use teseract paired with PyMuPDF for pdf OCR
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Generate the embedding locally
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Use the gpt-4o-mini-2024-07-18 for the LLM
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - The frontend must be made using html, vanilla JS and CSS. Serve it from the python backend to avoid using CORS. Keep in mind that the frontend must be in a separated folder from the backend.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Make sure to not write the version of the package in the requirements.txt to fetch the latest version.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">INSTRUCTIONS:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - When the user enters a website url, the backend starts scrapping it. Make sure to extract EVERYTING from the whole website, process images and all content from PDFs and index everything in the VDB. While this is happening keep updating in the frontend the number of pages indexed so the user knows how the process goes. Make sure to use good chunking techniques so the model can efectivelly use the contents of the VDB to answer the questions.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Also, while indexing everything, for all the concepts and acronyms that are particular to that specific website, store them in the DB as semantic agumentation. Related concepts based must be related in the DB, as I want you to perfectly implement the rest of the application, use a simple yet functional Regex for achieving this.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - When a user asks a question, it will first go through the VDB and all related chunks will be included in the context. Even if no chunks are find or the chunks are not relevant, pass the user question and augment it searching each word in the semantic augmentation. For each word that appears in the search, include the explanation of it as well as what is it related to in the context. After this, with all this context and the user question send it to the LLM. Also, the chat must maintain a history of 5 questions which will also be sent to the model as well as the context of those questions.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - The user must be able to create new chats, delete old chats, and retrieve the contents of the chat when clicking on it.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - The user must also be able to select which websites that have been scrapped does it want to talk in each chat.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Make sure that while the scrapping is ongoing the user can still talk with the LLM, delete chats and whatever it wants to do.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - And make sure the LLM includes the references from which it has obtained the information (URLs), or no references if it has answered without using the VDB knowledge.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">IMPORTANT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Make sure to implement EVERYTHING as described, do NOT cut corners nor simplify the implementation in ANY way.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Apply ANY and ALL the improvements that you think of and you will get handsomely rewarded.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - If you do not follow the instructions you will be fired.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Per a més informació sobre el projecte, podeu donar un cop d&amp;rsquo;ull al &lt;a class="link" href="https://github.com/DGSI-UPC/chat-with-any-website/blob/main/README.md" target="_blank" rel="noopener"
+>README&lt;/a> del projecte. Només voldria mencionar que la versió del projecte està actualitzada amb els continguts de &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-10-abril" >Chat with any website II&lt;/a>. Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/chat-with-any-website" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>RAG II</title><link>https://bernatbc.tk/dgsi/post/dijous-20-marc/</link><pubDate>Thu, 20 Mar 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-20-marc/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-20-marc/rag.png" alt="Featured image of post RAG II" />&lt;h2 id="system-prompts">System Prompts
+&lt;/h2>&lt;h3 id="introducció-a-les-system-prompts">Introducció a les system prompts
+&lt;/h3>&lt;p>En aquesta hackathon, hem començat aprenent com fer millors prompts als models com ChatGPT. Tot i que alguns d&amp;rsquo;aquests LLMs generen la seva pròpia &lt;a class="link" href="https://promptengineering.org/system-prompts-in-large-language-models/" target="_blank" rel="noopener"
+>system prompt&lt;/a>, és molt necessari que entengui què li demanes. Per fer-ho, se li ha de proporcionar context rellevant, ser específic, i ser clar en què li demanes.&lt;/p>
+&lt;p>També he après perquè és important donar un context curt i concís. Abans d&amp;rsquo;aquesta classe pensava que l&amp;rsquo;objectiu principal era perquè tingués més taxa d&amp;rsquo;encert (també), però realment és per reduir els costos d&amp;rsquo;ús d&amp;rsquo;aquests models.&lt;/p>
+&lt;p>Finalment, em va semblar curiós que el model retorni millors o pitjors respostes segons com creu que la persona que entra el prompt és. Pensant-ho una mica, té lògica que si esculls bé els conceptes, li sigui més fàcil trobar-lo, i donar millors respostes sobre aquest. D&amp;rsquo;altra banda, si ets vulgar amb l&amp;rsquo;entrada, és possible que t&amp;rsquo;ho relacioni amb informació poc valuosa, ja que aquestes paraules vulgars poden fer match amb informació que les contingui.&lt;/p>
+&lt;h3 id="activitat-amb-mermaid">Activitat amb Mermaid
+&lt;/h3>&lt;h4 id="enunciat">Enunciat
+&lt;/h4>&lt;p>Per tal de treballar com donar-li un bon prompt a un model, es va plantejar una activitat. Aquesta consistia a generar una línia del temps en &lt;a class="link" href="https://mermaid.js.org/" target="_blank" rel="noopener"
+>Mermaid&lt;/a> sobre la Universitat de Salamanca, en un sol prompt.&lt;/p>
+&lt;h4 id="la-solució">La solució
+&lt;/h4>&lt;p>El prompt introduit al &lt;a class="link" href="https://chatgpt.com/?model=gpt-4o-mini" target="_blank" rel="noopener"
+>ChatGPT-4o-mini&lt;/a> és:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Can you generate a timeline in Mermaid about the history of Salamanca \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">University? To do so, first find the most relevant events of this \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">university, alongside their dates. Then, list them in chronological order, \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">and group them by centuries. Finally, obtain more information about each \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">one of these events, and generate the time line in MermaidJS.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>El diagrama obtingut és el següent (podeu prémer sobre el diagrama per visualitzar-lo millor):&lt;/p>
+&lt;p>&lt;a class="link" href="https://mermaid.live/edit#pako:eNqNVtuO2zYQ_RVCL30xDF_Xlt-SzQZx20UXubRFsS-0NJbZUKRCSrtxggD9jX5HP6F_0i_pGVKS7dWiqB8WK4mcOTxz5gy_JpnNKdkktSpJK0P3RuBXq1qTeKN8bd1R2L2oDyQ-GPVAzqs6vHkntSylyeS9iXs8ZbWyRkxn9UFck6kbd4xfptP5QmzEa9uYXIY1w4jtZ8rF7ih-UKYQL_TeGm_F9lde_iP9_ZcZi239zx9_emENdTGszsnXoulCKfJCGXHTOFvRuAUwm645g3JY-dYepRZ3Tj0oTQXh_dN0hZOm9iH6PmxxYUvVbRmJvXWl1PooHGW2MOoLR-gZEdILeUJ0HA8omg8omi3nQHInKyR62Wgt9s6W4g5nEFtjbIbFYvszlrwHqlNooXyEC-IYr1PFoRa1FZk1e3Iip8JRZASfrbbFUUiTCy0fmein8Xu-1tMezTUiKRw3IOcSubjtVroaYZ8DBVYID17sG4e0LqDpY3B--lxJ41spKJAdgPtn4w_puxrQt5xMAGMLHrTGqoZxYwFisVQriUAb8fIIEkAYa310Vq4diljShao0yZxrqs4jZiFiIDOG5JNcCm05WyHR9UGqkPlWIhgfO_Nh8QtfO2tseRQ3vpY7rfwBhducnkquQ4shC1EgNVE-CSO7MCPhD_Yxk56x1hdF-I5xPlj9QCEm0PpM4T-1V5nwdZMfe8zLad8caAssQbA7R94PK0s9bB_KFvuj6nZVvGsk0Br2kZ8ZPAQouRA53MSpXdMZwEdjHzXlxYm75alJwa9BFvFS7WBE76Fwr6N6NvjGjeqiVVweehSe67PlLZcxDlDaPjSEgLJXmtA7PYQ1y-gNiv-pgfy42G2AbtfWfGoU20yAEpzj7qC0qsR2i27zqjA4rb80Aw5w-H9Bh2JfDcR-NY1iv6ju9-QbVYtXtAv5B5XrRN6KIm8tobMFlUHgrK3KagDhp7wN5Rvn2Js7jbWZfnJo1Y64qxVr6Fb-joK_JbbHZyCE5i4shwRNLEQYF8wiLkdpSswiBzeloC3KmywUsUUm81IZFhFePhA07Br0JRQ35CwdcLaep-wAtnE7LDhBfG07rZ4X5BcZ2ncLwBXhj8kuDON0EGRvYXAIlLpChXvRtdnaE3ZcrRdLbvmz00U44ZBvyboCIL50ah_6veuWoIjRL4MbhcF4zllMy1Y_eoIzdK7MGh2mJactLBIYHI4GZM4mAzLTCVd7teQvL0wEJ3FRuCZNO9f3ac9X1r5vTSNulKeNIzic-9gh09YUsJkoOJnJnEpYFgavzHrPSpfM4auu39gS2-sKlt5a04S2OMfw4YLDnDIt2UKkOHTbgsYwczzkDym2MVqP6ZQRieIvQ6KmMK4LomaTfiyB3LYsN_3oO4enZWMydtVC2x1fNoDEAO9BVbFC55Wlz5gNBneXyllM_9KfCJTC0GMYW6eM1UH6zmVnk3AVWk_-u3ZPVPekgHH3RQEdKQO5ZV0ReRLUChBlP1fjpIz3t3hp43OV1rN_7XXDwwlolcHGOowJP05GSeFUnmygXholJeESwY_JVz7OfcJzke6TDf7NaS-h6Pvk3nzDNpD8m7VltxMOVhySzV5qj6emwkWUXinJ7PVLuNPdNayuTjaLdQiRbL4mn5PNKh3jhjGZrK5m6TxdLOej5JhsZmk6Xqwmi-U6XS_mq-W3UfIlpJyM16tFit9ylS4Wk0W6GCWUK8jsNt62w32oSL79C5TYBfg" target="_blank" rel="noopener"
+>&lt;img src="https://mermaid.ink/img/pako:eNqNVtuO2zYQ_RVCL30xDF_Xlt-SzQZx20UXubRFsS-0NJbZUKRCSrtxggD9jX5HP6F_0i_pGVKS7dWiqB8WK4mcOTxz5gy_JpnNKdkktSpJK0P3RuBXq1qTeKN8bd1R2L2oDyQ-GPVAzqs6vHkntSylyeS9iXs8ZbWyRkxn9UFck6kbd4xfptP5QmzEa9uYXIY1w4jtZ8rF7ih-UKYQL_TeGm_F9lde_iP9_ZcZi239zx9_emENdTGszsnXoulCKfJCGXHTOFvRuAUwm645g3JY-dYepRZ3Tj0oTQXh_dN0hZOm9iH6PmxxYUvVbRmJvXWl1PooHGW2MOoLR-gZEdILeUJ0HA8omg8omi3nQHInKyR62Wgt9s6W4g5nEFtjbIbFYvszlrwHqlNooXyEC-IYr1PFoRa1FZk1e3Iip8JRZASfrbbFUUiTCy0fmein8Xu-1tMezTUiKRw3IOcSubjtVroaYZ8DBVYID17sG4e0LqDpY3B--lxJ41spKJAdgPtn4w_puxrQt5xMAGMLHrTGqoZxYwFisVQriUAb8fIIEkAYa310Vq4diljShao0yZxrqs4jZiFiIDOG5JNcCm05WyHR9UGqkPlWIhgfO_Nh8QtfO2tseRQ3vpY7rfwBhducnkquQ4shC1EgNVE-CSO7MCPhD_Yxk56x1hdF-I5xPlj9QCEm0PpM4T-1V5nwdZMfe8zLad8caAssQbA7R94PK0s9bB_KFvuj6nZVvGsk0Br2kZ8ZPAQouRA53MSpXdMZwEdjHzXlxYm75alJwa9BFvFS7WBE76Fwr6N6NvjGjeqiVVweehSe67PlLZcxDlDaPjSEgLJXmtA7PYQ1y-gNiv-pgfy42G2AbtfWfGoU20yAEpzj7qC0qsR2i27zqjA4rb80Aw5w-H9Bh2JfDcR-NY1iv6ju9-QbVYtXtAv5B5XrRN6KIm8tobMFlUHgrK3KagDhp7wN5Rvn2Js7jbWZfnJo1Y64qxVr6Fb-joK_JbbHZyCE5i4shwRNLEQYF8wiLkdpSswiBzeloC3KmywUsUUm81IZFhFePhA07Br0JRQ35CwdcLaep-wAtnE7LDhBfG07rZ4X5BcZ2ncLwBXhj8kuDON0EGRvYXAIlLpChXvRtdnaE3ZcrRdLbvmz00U44ZBvyboCIL50ah_6veuWoIjRL4MbhcF4zllMy1Y_eoIzdK7MGh2mJactLBIYHI4GZM4mAzLTCVd7teQvL0wEJ3FRuCZNO9f3ac9X1r5vTSNulKeNIzic-9gh09YUsJkoOJnJnEpYFgavzHrPSpfM4auu39gS2-sKlt5a04S2OMfw4YLDnDIt2UKkOHTbgsYwczzkDym2MVqP6ZQRieIvQ6KmMK4LomaTfiyB3LYsN_3oO4enZWMydtVC2x1fNoDEAO9BVbFC55Wlz5gNBneXyllM_9KfCJTC0GMYW6eM1UH6zmVnk3AVWk_-u3ZPVPekgHH3RQEdKQO5ZV0ReRLUChBlP1fjpIz3t3hp43OV1rN_7XXDwwlolcHGOowJP05GSeFUnmygXholJeESwY_JVz7OfcJzke6TDf7NaS-h6Pvk3nzDNpD8m7VltxMOVhySzV5qj6emwkWUXinJ7PVLuNPdNayuTjaLdQiRbL4mn5PNKh3jhjGZrK5m6TxdLOej5JhsZmk6Xqwmi-U6XS_mq-W3UfIlpJyM16tFit9ylS4Wk0W6GCWUK8jsNt62w32oSL79C5TYBfg?type=png"
+loading="lazy"
+>&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">timeline
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> title History of the University of Salamanca
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> section 12th Century
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1134 : Foundation of the University : Founded by King Alfonso IX of León. It’s one of the oldest universities in Europe.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1218 : First Royal Privilege : King Alfonso IX grants the first royal privilege, formally recognizing Salamanca as a university.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> section 13th Century
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1253 : Papal Bull from Pope Innocent IV : The university is granted the right to confer degrees in theology and law by Pope Innocent IV.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1281 : Papal Confirmation under Pope Martin IV : The university receives further confirmation and expansion of its rights under Pope Martin IV.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> section 16th Century
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1500 : Intellectual Center of Spain : By this time, Salamanca becomes one of the leading intellectual centers in Spain and Europe.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1527 : Chair of Mathematics and Astronomy Established : Establishment of the chair for mathematics and astronomy, showcasing the university&amp;#39;s involvement in scientific study.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1551 : First Printing Press : The university establishes its first printing press, allowing for greater distribution of knowledge.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1558 : First Spanish Bible Translation : Sponsored by the university, the translation of the Bible into Spanish is completed.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1580 : Headquarters of the Spanish Inquisition : King Philip II designates Salamanca as the headquarters of the Spanish Inquisition.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> section 17th Century
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1610 : Involvement in Jesuit Debates : The university becomes involved in the theological and political debates surrounding the Jesuit Order.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1671 : Major Reforms : The university undergoes significant reforms to modernize its educational and administrative structures.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> section 19th Century
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1839 : Bourbon Reforms : Following the Spanish War of Independence, Salamanca undergoes restructuring as part of the Bourbon reforms.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1845 : Educational Reform and Reorganization : The university is reorganized under Spain’s educational reform law, restructuring its faculties and governance.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> section 20th Century
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1901 : 750th Anniversary Celebration : Salamanca celebrates its 750th anniversary, marking its longstanding academic legacy.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1955 : Designated as Historic Monument : Salamanca University is declared a historic and artistic monument by the Spanish government.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> section 21st Century
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 2000 : International Expansion : Salamanca launches global partnerships and educational exchange programs, marking a new international phase.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 2018 : 800th Anniversary Celebration : The university celebrates its 800th anniversary, reinforcing its prestige as one of Europe’s oldest and most influential institutions.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat-1">Enunciat
+&lt;/h3>&lt;p>L&amp;rsquo;objectiu d&amp;rsquo;aquesta hackathon era complementar el RAG ja començat a &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-13-marc" >RAG I&lt;/a>. L&amp;rsquo;objectiu principal era afegir un diccionari de conceptes i acrònims, que ajudés al model a entedre certs conceptes. En el nostre cas, conceptes de la FIB, com podria ser &lt;code>DGSI&lt;/code>. Per fer-ho, podíem experimentar amb els següents mecanismes:&lt;/p>
+&lt;ol>
+&lt;li>Integrar les definicions dels conceptes als fragments abans de fer l&amp;rsquo;embedding&lt;/li>
+&lt;li>Integrar les definicions dels conceptes als fragments obtinguts de la query&lt;/li>
+&lt;/ol>
+&lt;h3 id="la-solució-1">La solució
+&lt;/h3>&lt;p>Nosaltres vam optar per seguir el segon mètode (integrar-ho després de la query). Per fer el diccionari, simplement vaig utilitzar el model &lt;a class="link" href="https://aistudio.google.com/prompts/new_chat?model=gemini-2.0-flash-exp" target="_blank" rel="noopener"
+>Gemini 2.0 flash&lt;/a>. Simplement, li vaig demanar en aquest model a Copilot, que generés el diccionari en format JSON a partir del directori de fitxers de Markdown com a context.&lt;/p>
+&lt;p>En paral·lel, un company va integrar el RAG a una pàgina web, utilitzant &lt;a class="link" href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener"
+>FastAPI&lt;/a>.&lt;/p>
+&lt;p>Per a més informació sobre el projecte, podeu donar un cop d&amp;rsquo;ull al &lt;a class="link" href="https://github.com/DGSI-UPC/llm-chat-rag/blob/main/README.md" target="_blank" rel="noopener"
+>README&lt;/a> del projecte. Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/llm-chat-rag" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>RAG I</title><link>https://bernatbc.tk/dgsi/post/dijous-13-marc/</link><pubDate>Thu, 13 Mar 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-13-marc/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-13-marc/rag.png" alt="Featured image of post RAG I" />&lt;h2 id="introducció-de-conceptes">Introducció de conceptes
+&lt;/h2>&lt;h3 id="introducció-al-retrieval-augmented-generation">Introducció al Retrieval Augmented Generation
+&lt;/h3>&lt;p>Aquesta hackathon m&amp;rsquo;ha ensenyat com funcionen els agents de xatbot quan fan cerques a internet. La idea principal és introduir context com a entrada del model. En aquests bots, el context, a part de contenir l&amp;rsquo;historial del xat i els tokens introduïts a la sortida, se li afegeix informació rellevant extreta d&amp;rsquo;internet. Explicat d&amp;rsquo;una manera molt simplificada, això se&amp;rsquo;n coneix com a Retrieval Augmented Generation (RAG).&lt;/p>
+&lt;h3 id="introducció-al-product-requirements-document">Introducció al Product Requirements Document
+&lt;/h3>&lt;p>Abans de començar aquesta hackathon, en Marc va introduir el Product Requirements Document (PRD). Un PRD és un document formal que descriu el propòsit, les característiques i la funcionalitat d&amp;rsquo;un producte o una característica específica. Serveix com a guia central per als equips de disseny, enginyeria i altres, assegurant que tothom entengui què s&amp;rsquo;ha de construir i per què.&lt;/p>
+&lt;p>Sabent aquest concepte, en aquesta hackathon vam decidir demanar-li a un model que ens generés un PRD seguint les guies donades. Amb aquest document, el Copilot tenia més clar què havia de fer en aquesta hackathon, per tal d&amp;rsquo;obtenir uns millors resultats, i sobretot, que se cenyeixi més amb la nostra idea de projecte.&lt;/p>
+&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>L&amp;rsquo;objectiu d&amp;rsquo;aquesta hackathon era integrar un LLM a la base de dades vectorials desenvolupat a la hackathon d&amp;rsquo;&lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-6-marc" >Embedding amb ChromaDB&lt;/a>, per tal de donar context a un xatbot.&lt;/p>
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>Per tal de crear el RAG, en el nostre cas, la informació d&amp;rsquo;internet ja l&amp;rsquo;havíem extret a la mini-hackathon del &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-27-febrer" >Dijous 27 Febrer&lt;/a>, i introduïda a una base de dades vectorial el &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-6-marc" >Dijous 6 Març&lt;/a>. Una vegada l&amp;rsquo;usuari dona una entrada al xat, el sistema construeix una query per a la base de dades, per recollir informació semànticament semblant. A continuació, introduïm l&amp;rsquo;entrada de l&amp;rsquo;usuari, juntament amb el propmt, l&amp;rsquo;historial i els resultats més rellevants obtinguts de la base de dades, al model LLM, que en el nostre cas era ChatGPT-4o-mini, mitjançant l&amp;rsquo;&lt;a class="link" href="https://platform.openai.com/docs/models" target="_blank" rel="noopener"
+>API d&amp;rsquo;OpenAI&lt;/a>. A la imatge de continuació hi ha un esquema d&amp;rsquo;aquest sistema.&lt;/p>
+&lt;p>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-13-marc/20250315154323.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>El funcionament del nostre RAG no té gaire misteri, ja que la font de coneixament (base de dades vectorial) ja la teníem feta. Simplement, fem una query a aquesta base de dades. Si no hi ha cap fragment obtingut per sobre d&amp;rsquo;un cert llindar de rellevància, el sistema retorna un missatge indicant que no tenim el coneixement per respondre-ho. Altrament, els fragments obtinguts, juntament amb el prompt i l&amp;rsquo;historial del cat, el passem al model &lt;a class="link" href="https://platform.openai.com/docs/models/gpt-4o-mini" target="_blank" rel="noopener"
+>ChatGPT-4o-mini&lt;/a> d&amp;rsquo;OpenAI. La resposta obtinguda per aquest LLM és la que el sistema imprimeix.&lt;/p>
+&lt;p>Per a més informació sobre el projecte, podeu donar un cop d&amp;rsquo;ull al &lt;a class="link" href="https://github.com/DGSI-UPC/llm-chat-rag/blob/main/README.md" target="_blank" rel="noopener"
+>README&lt;/a> del projecte. Només voldria mencionar que la versió del projecte està actualitzada amb els continguts de &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-20-marc" >RAG II&lt;/a>. Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/llm-chat-rag" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>Embedding amb ChromaDB</title><link>https://bernatbc.tk/dgsi/post/dijous-6-marc/</link><pubDate>Thu, 06 Mar 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-6-marc/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-6-marc/chromadb.png" alt="Featured image of post Embedding amb ChromaDB" />&lt;h2 id="introducció-als-embeddings">Introducció als Embeddings
+&lt;/h2>&lt;p>Abans de començar la 3a mini-hackathon, desconeixia completament què era l&amp;rsquo;embedding a bases de dades vectorials. En explicar en què consistia, em va semblar molt interessant poder fer cerques per similitud semàntica en una base de dades que un mateix s&amp;rsquo;ha muntat.&lt;/p>
+&lt;p>El responsable en trobar aquestes relacions semàntiques és un model especialitzat a fer embeddings. OpenAI ofereix &lt;a class="link" href="https://platform.openai.com/docs/guides/embeddings#embedding-models" target="_blank" rel="noopener"
+>models d&amp;rsquo;embedding&lt;/a> a un preu molt raonable, però també és comú executar models en local. Per fer-ho, molts usuaris utilitzen &lt;a class="link" href="https://ollama.com/" target="_blank" rel="noopener"
+>Ollama&lt;/a> amb aquests models. Jo ja l&amp;rsquo;havia fet servir abans, però sempre amb models LLM com &lt;a class="link" href="https://ollama.com/library/llama3.1" target="_blank" rel="noopener"
+>Llama3.1&lt;/a> o &lt;a class="link" href="https://ollama.com/library/qwen2.5-coder" target="_blank" rel="noopener"
+>Qwen2.5-Coder&lt;/a>, però mai amb models d&amp;rsquo;embedding. Anteriorment, ja havia donat un cop d&amp;rsquo;ull als models més populars que ofereix Ollama, i sempre veia el model &lt;a class="link" href="https://ollama.com/library/nomic-embed-text" target="_blank" rel="noopener"
+>nomic-embed-text&lt;/a> com un dels més populars, sense que fos un LLM. Després d&amp;rsquo;aquesta hackathon ja he entès per què s&amp;rsquo;utilitza, perquè és tan popular, i que Ollama ofereix models per a altres usos.&lt;/p>
+&lt;p>Durant el grau, a l&amp;rsquo;assignatura de &lt;a class="link" href="https://www.fib.upc.edu/ca/estudis/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PROP" target="_blank" rel="noopener"
+>Projectes de Programació&lt;/a> (PROP), vaig haver de fer un gestor de documents, on havíem de fer cerques de documents per similitud i rellevància. En aquell projecte vam utilitzar l&amp;rsquo;algorisme &lt;a class="link" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf" target="_blank" rel="noopener"
+>TF-IDF&lt;/a>, que compta les vegades que una paraula surt al document, i en tots els documents. Hauríem pogut fer una cerca més potent, utilitzant l&amp;rsquo;embedding, après en aquesta mini-hackathon.&lt;/p>
+&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>L&amp;rsquo;objectiu d&amp;rsquo;aquesta hackathon era utilitzar els documents en Markdown generats a la hackathon &lt;a class="link" href="https://bernatbc.tk/dgsi/post/dijous-27-febrer" >Web to Markdown&lt;/a>, i fer l&amp;rsquo;embedding a una base de dades vectorials. Una vegada ja s&amp;rsquo;ha fet l&amp;rsquo;embedding, l&amp;rsquo;aplicació hauria de ser capaç de fer queries a aquesta base de dades, i obtenir fragments dels documents rellevants amb la query feta.&lt;/p>
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>Acompanyat amb els meus companys, hem creat una eina CLI que permet indicar un directori on els documents en Markdown es localitzen. A més a més, l&amp;rsquo;usuari pot indicar la mida dels fragments (per defecte 500 caràcters), i un overlap entre fragments (per defecte 50 caràcters). Una vegada l&amp;rsquo;embedding ja està enllestit, l&amp;rsquo;usuari pot fer queries amb paràmetres addicionals. Aquests són: indicar la quantitat de resultats, indicar un subdirectori de fitxers (amb aquesta opció, es fa un embedding al moment), i indicar una base de dades vectorial amb l&amp;rsquo;embedding fet.&lt;/p>
+&lt;p>Per fer aquest projecte, hem utilitzat Python com a llenguatge principal. Seguint la recomanació d&amp;rsquo;en Marc, la base de dades vectorial escollida és &lt;a class="link" href="https://www.trychroma.com/" target="_blank" rel="noopener"
+>ChromaDB&lt;/a>.&lt;/p>
+&lt;p>Per a indexar els fitxers a la base de dades, els partim en fragments. Tal com s&amp;rsquo;ha indicat, per defecte tenen una mida de 500 caràcters, amb 50 caràcters corresponent al fragment anterior, i 50 caràcters del fragment posterior. A més a més, indexem una sèrie de metadades, com el path del fitxer del fragment i l&amp;rsquo;índex de fragment del fitxer.&lt;/p>
+&lt;p>Per tal de fer l&amp;rsquo;embedding hem optat per donar 2 possibilitats.&lt;/p>
+&lt;ol>
+&lt;li>La primera no requereix cap clau API. Aquesta opció utilitza les funcions per defecte de ChromaDB, &lt;a class="link" href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2" target="_blank" rel="noopener"
+>sentence-transformers/all-MiniLM-L6-v2&lt;/a>.&lt;/li>
+&lt;li>La segona requereix una clau d&amp;rsquo;OpenAI. Amb aquesta opció, els embeddings es generen amb el model &lt;a class="link" href="https://platform.openai.com/docs/models/text-embedding-3-small" target="_blank" rel="noopener"
+>text-embedding-3-small&lt;/a> d&amp;rsquo;OpenAI.&lt;/li>
+&lt;/ol>
+&lt;p>La part de les queries no té gaire misteri, simplement obtenim els fragments més rellevants de la base de dades.&lt;/p>
+&lt;p>Per a més informació sobre el projecte, podeu donar un cop d&amp;rsquo;ull al &lt;a class="link" href="https://github.com/DGSI-UPC/ChromaDB-Embedding/blob/main/README.md" target="_blank" rel="noopener"
+>README&lt;/a> del projecte. Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/ChromaDB-Embedding" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>Web to Markdown</title><link>https://bernatbc.tk/dgsi/post/dijous-27-febrer/</link><pubDate>Thu, 27 Feb 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-27-febrer/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-27-febrer/web-to-markdown.png" alt="Featured image of post Web to Markdown" />&lt;h2 id="introducció-al-markdown">Introducció al Markdown
+&lt;/h2>&lt;p>Abans de començar la segona mini-hackathon del curs, en Marc va comentar un parell de coses sobre Markdown, que em van cridar l’atenció. La primera va ser quan va comentar que existia l’aplicació &lt;a class="link" href="https://obsidian.md/" target="_blank" rel="noopener"
+>Obsidian&lt;/a>, una alternativa a &lt;a class="link" href="https://www.notion.com/" target="_blank" rel="noopener"
+>Notion&lt;/a>. En Marc va comentar que Obsidian és de codi obert, però és completament fals. És veritat que Obsidian és gratis, però no és Open Source. No culpo en Marc, perquè és una concepció comuna popular, ja que tot i que Obsidian té una organització a GitHub, però no conté el codi font. Fins i tot, en el &lt;a class="link" href="https://github.com/obsidianmd/obsidian-releases/blob/master/README.md" target="_blank" rel="noopener"
+>README.md&lt;/a> del repositori &lt;a class="link" href="https://github.com/obsidianmd/obsidian-releases" target="_blank" rel="noopener"
+>obsidianmd/obsidian-releases&lt;/a>, conté la següent frase: &lt;em>&amp;ldquo;Obsidian is not open source software and this repo DOES NOT contain the source code of Obsidian.&amp;rdquo;&lt;/em>. El segon comentari que em va cridar l’atenció és que digués que la seva pàgina personal estava feta amb &lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+>gohugo&lt;/a>. La meva pàgina web també està feta amb gohugo. De fet, soc mantainer del tema &lt;a class="link" href="https://github.com/hugo-toha" target="_blank" rel="noopener"
+>hugo-toha&lt;/a>, tema que utilitzo per a la meva pàgina web.&lt;/p>
+&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;p>Centrant-nos en la hackathon en si, no és que hagi après gran cosa. Ja coneixia tècniques de crawling i web-scraping, però mai havia fet cap aplicació amb això. L’aplicació creada em sembla útil en 2 casos. El primer és si vols desar-te els continguts de la web en qüestió en local. D’aquesta manera, com que no està estructurat, totes les pàgines desades tenen el mateix “format”. La segona raó, és en el cas que vulguis fer un model que s’entreni amb informació de pàgines web. Eliminant totes les etiquetes d&amp;rsquo;HTML, estàs reduint la mida d’aquests fitxers, i eliminant soroll que produeixen aquestes etiquetes.&lt;/p>
+&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>En aquesta segona hackathon, havíem de construir una eina que permetés obtenir documents Markdown la pàgina de la &lt;a class="link" href="https://fib.upc.edu" target="_blank" rel="noopener"
+>FIB&lt;/a>, mitjançant tècniques de &lt;a class="link" href="https://en.wikipedia.org/wiki/Web_crawler" target="_blank" rel="noopener"
+>Crawling&lt;/a> i &lt;a class="link" href="https://en.wikipedia.org/wiki/Web_scraping" target="_blank" rel="noopener"
+>Web scraping&lt;/a>. Aquests fitxers Markdown també havíen de tenir les imatges i taules ben formatades. Aquests documents els necessitaríem per a pròximes hackathons.&lt;/p>
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>Acompanyat amb els meus companys, hem creat una pàgina web on l&amp;rsquo;usuari introdueix un enllaç d&amp;rsquo;una pàgina web. Després d&amp;rsquo;una estona (varia segons la mida de la pàgina), l&amp;rsquo;usuari obté un arxiu comprimit amb tots els fitxers Markdown, estructurats segons les subpàgines, amb totes les imatges, arxius PDF i altres. Les taules dels documents, s&amp;rsquo;han generat seguint l&amp;rsquo;estàndard de Markdown.&lt;/p>
+&lt;p>Per fer aquest projecte, hem utilitzat Python com a llenguatge principal. Per al servei API, igual que a la primera hackathon, hem usat &lt;a class="link" href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener"
+>FastAPI&lt;/a>.&lt;/p>
+&lt;p>Per tal de fer el crawling, hem creat una cua on afegim les pàgines de tots els enllaços trobats a la pàgina introduïda. Hem fet servir la biblioteca &lt;a class="link" href="https://trafilatura.readthedocs.io/en/latest/" target="_blank" rel="noopener"
+>trafilatura&lt;/a> per a obtenir els fitxers HTML, &lt;a class="link" href="https://www.crummy.com/software/BeautifulSoup/" target="_blank" rel="noopener"
+>Beautiful Soup&lt;/a> i &lt;a class="link" href="https://alir3z4.github.io/html2text/" target="_blank" rel="noopener"
+>html2text&lt;/a> per a fer el parseig d&amp;rsquo;HTML a Markdown.&lt;/p>
+&lt;p>Per tal d&amp;rsquo;executar el projecte, donem 2 possibilitats. La primera és executar-la en local mitjançant &lt;a class="link" href="https://www.uvicorn.org/" target="_blank" rel="noopener"
+>Uvicorn&lt;/a>, i la segona és mitjançant un contenidor &lt;a class="link" href="https://www.docker.com/" target="_blank" rel="noopener"
+>Docker&lt;/a> amb el Dockerfile que proporcionem.&lt;/p>
+&lt;p>Per a més informació sobre el projecte, podeu donar un cop d&amp;rsquo;ull al &lt;a class="link" href="https://github.com/DGSI-UPC/Web-to-Markdown/blob/main/README.md" target="_blank" rel="noopener"
+>README&lt;/a> del projecte. Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/Web-to-Markdown" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p></description></item><item><title>Generador de Subtítols</title><link>https://bernatbc.tk/dgsi/post/dijous-20-febrer/</link><pubDate>Thu, 20 Feb 2025 11:30:03 +0000</pubDate><guid>https://bernatbc.tk/dgsi/post/dijous-20-febrer/</guid><description>&lt;img src="https://bernatbc.tk/dgsi/post/dijous-20-febrer/subtitles.png" alt="Featured image of post Generador de Subtítols" />&lt;h2 id="github-copilot">GitHub Copilot
+&lt;/h2>&lt;p>Amb la primera mini-hackathon del curs m’ha sorprès la facilitat amb què es pot generar codi mitjançant &lt;a class="link" href="https://github.com/features/copilot" target="_blank" rel="noopener"
+>copilot&lt;/a>. Era la primera vegada que l’utilitzava, ja que jo sempre m’he mostrat contrari en fer-lo servir. La raó principal és que en utilitzar-lo, la gent entén menys què està programant, i en la situació actual, prefereixo aprendre i comprendre què estic programant.&lt;/p>
+&lt;p>Així i tot, si domines la temàtica del que li preguntes al copilot, considero que pot ser molt útil per a afegir features de manera ràpida, i d’arreglar errors en el codi. Centrant-nos a la mini-hackathon, l’ús de copilot ens ha permès desenvolupar de forma molt ràpida el diaritzador d’àudio, estalviant-nos la recerca i lectura de la documentació de diversos models i biblioteques de Python. Després d’aquesta hackathon, segurament utilitzaré més freqüent copilot (però no a la feina on estic ara, que ens han prohibit la IA).&lt;/p>
+&lt;h2 id="hackathon">Hackathon
+&lt;/h2>&lt;h3 id="enunciat">Enunciat
+&lt;/h3>&lt;p>Aquesta primera hackathon consistia en construir una eina que permetés generar subtítols donat un fitxer d&amp;rsquo;àudio. A més a més, ha d&amp;rsquo;estar &lt;a class="link" href="https://lajavaness.medium.com/speaker-diarization-an-introductory-overview-c070a3bfea70" target="_blank" rel="noopener"
+>diaritzat&lt;/a>, és a dir, que els subtítols indiquin qui diu la frase en qüestió. Aquests subtítols generats han d&amp;rsquo;estar en el format estàndard &lt;a class="link" href="https://en.wikipedia.org/wiki/SubRip" target="_blank" rel="noopener"
+>SRT&lt;/a>.&lt;/p>
+&lt;h3 id="la-solució">La solució
+&lt;/h3>&lt;p>Acompanyat amb els meus companys, hem creat una pàgina web que genera automàticament els subtítols. L&amp;rsquo;usuari escull un fitxer d&amp;rsquo;àudio (&lt;code>.wav&lt;/code>, &lt;code>.mp3&lt;/code>, &lt;code>.m4a&lt;/code> i &lt;code>.flac&lt;/code>), i seguidament pot escollir entre els formats &lt;a class="link" href="ttps://en.wikipedia.org/wiki/SubRip" >SubRip (SRT)&lt;/a> is &lt;a class="link" href="https://en.wikipedia.org/wiki/WebVTT" target="_blank" rel="noopener"
+>WebVTT (VTT)&lt;/a>. Al cap d&amp;rsquo;uns segons, l&amp;rsquo;usuari obté el fitxer amb els subtítols diaritzats, en el format triat.&lt;/p>
+&lt;p>Per fer aquest projecte, hem utilitzat Python com a llenguatge principal. Per al servei API, hem usat &lt;a class="link" href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener"
+>FastAPI&lt;/a>.&lt;/p>
+&lt;p>Per tal de fer la transcripció i la diarització dels subtítols hem optat per donar 2 possibilitats.&lt;/p>
+&lt;ol>
+&lt;li>La primera no requereix de cap clau API. Aquesta opció, es fan servir els models de &lt;a class="link" href="https://www.pyannote.ai/" target="_blank" rel="noopener"
+>Pyannote&lt;/a> &lt;a class="link" href="https://huggingface.co/pyannote/segmentation" target="_blank" rel="noopener"
+>Segmentation&lt;/a> i &lt;a class="link" href="https://huggingface.co/pyannote/speaker-diarization" target="_blank" rel="noopener"
+>Speaker Diarization&lt;/a>.&lt;/li>
+&lt;li>La segona requereix d&amp;rsquo;una clau d&amp;rsquo;OpenAI. Amb aquesta opció, els subtítols es generen amb el model &lt;a class="link" href="https://openai.com/index/whisper/" target="_blank" rel="noopener"
+>Whisper&lt;/a> d&amp;rsquo;OpenAI.&lt;/li>
+&lt;/ol>
+&lt;p>Per tal d&amp;rsquo;executar el projecte, donem 2 possibilitats. La primera és executar-la en local mitjançant &lt;a class="link" href="https://www.uvicorn.org/" target="_blank" rel="noopener"
+>Uvicorn&lt;/a>, i la segona és mitjançant un contenidor &lt;a class="link" href="https://www.docker.com/" target="_blank" rel="noopener"
+>Docker&lt;/a> amb el Dockerfile que proporcionem.&lt;/p>
+&lt;p>Per a més informació sobre el projecte, podeu donar un cop d&amp;rsquo;ull al &lt;a class="link" href="https://github.com/DGSI-UPC/Subtitle-Generator/blob/main/README.md" target="_blank" rel="noopener"
+>README&lt;/a> del projecte. Al següent enllaç trobareu el codi font del projecte:&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/DGSI-UPC/Subtitle-Generator" target="_blank" rel="noopener"
+>Veure a GitHub&lt;/a>&lt;/p>
+&lt;p>A continuació podeu veure un vídeo on es mostra un exemple de generació de subtítols amb la nostra eina:&lt;/p>
+&lt;div class="video-wrapper">
+&lt;video
+controls
+src="subtitle_generator.mp4"
+>
+&lt;p>
+Your browser doesn't support HTML5 video. Here is a
+&lt;a href="subtitle_generator.mp4">link to the video&lt;/a> instead.
+&lt;/p>
+&lt;/video>
+&lt;/div></description></item></channel></rss>
